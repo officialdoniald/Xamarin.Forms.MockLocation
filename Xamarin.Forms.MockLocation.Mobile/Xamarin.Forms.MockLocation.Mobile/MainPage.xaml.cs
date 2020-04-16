@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Xamarin.Forms.MockLocation.Mobile
@@ -16,6 +18,27 @@ namespace Xamarin.Forms.MockLocation.Mobile
         public MainPage()
         {
             InitializeComponent();
-        }
+
+            Thread thread = new Thread(async () =>
+            {
+                while (true)
+                {
+                    var request = new GeolocationRequest(GeolocationAccuracy.Medium);
+                    var location = await Geolocation.GetLocationAsync(request);
+
+                    if (location != null)
+                    {
+                        if (location.IsFromMockProvider)
+                        {
+                            //Detect mocking location
+                        }
+                        else
+                        {
+                            //Detect normal location
+                        }
+                    }
+                }
+            });
+                    }
     }
 }

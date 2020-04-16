@@ -3,6 +3,9 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using Android.Content;
+using Android.Support.V4.App;
+using System;
+using Android;
 
 namespace Xamarin.Forms.MockLocation.Mobile.Droid
 {
@@ -22,6 +25,9 @@ namespace Xamarin.Forms.MockLocation.Mobile.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.AccessFineLocation }, 1);
+            
             LoadApplication(new App());
         }
 

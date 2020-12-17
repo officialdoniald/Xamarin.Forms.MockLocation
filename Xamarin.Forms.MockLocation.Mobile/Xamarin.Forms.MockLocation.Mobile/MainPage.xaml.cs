@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.MockLocationPlugin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,8 +11,6 @@ using Xamarin.Forms;
 
 namespace Xamarin.Forms.MockLocation.Mobile
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
@@ -39,6 +38,16 @@ namespace Xamarin.Forms.MockLocation.Mobile
                     }
                 }
             });
-                    }
+
+            DependencyService.Get<IMockLocationPlugin>().SendMockLocation(new IMockLocationPlugin.MockPosition()
+            {
+                Longitude = 24.234234,
+                Latitude = 46.3213123,
+                Accuracy = 1.0f,
+                Altitude = 15,
+                Bearing = 5f,
+                Speed = 50f
+            });
+        }
     }
 }

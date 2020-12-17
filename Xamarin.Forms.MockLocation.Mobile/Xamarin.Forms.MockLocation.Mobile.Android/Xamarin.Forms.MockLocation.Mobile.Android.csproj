@@ -58,7 +58,6 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Implementations\MockLocationProvider.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,10 +89,6 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Xamarin.Forms.MockLocation.Implementation\Xamarin.Forms.MockLocation.Implementation.csproj">
-      <Project>{798EDB97-ED58-4674-A0C3-28967C83E25A}</Project>
-      <Name>Xamarin.Forms.MockLocation.Implementation</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Xamarin.Forms.MockLocation.Mobile\Xamarin.Forms.MockLocation.Mobile.csproj">
       <Project>{69F91A76-2F13-4993-808C-B1581A4FB19B}</Project>
       <Name>Xamarin.Forms.MockLocation.Mobile</Name>

@@ -16,6 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Xamarin.Forms.MockLocation.Implementation\Xamarin.Forms.MockLocation.Implementation.csproj" />
+    <ProjectReference Include="..\..\MockLocationPlugin\MockLocationPlugin.csproj" />
   </ItemGroup>
 </Project>

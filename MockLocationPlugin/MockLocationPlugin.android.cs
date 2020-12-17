@@ -1,16 +1,17 @@
-﻿using System;
-using Android.Content;
+﻿using Android.Content;
 using Android.Hardware;
 using Android.Locations;
-using Xamarin.Forms.MockLocation.Implementation;
-using Xamarin.Forms.MockLocation.Mobile.Droid.Implementations;
+using System;
+using Xamarin.Forms;
 
-[assembly: Xamarin.Forms.Dependency(typeof(MockLocationProvider))]
-namespace Xamarin.Forms.MockLocation.Mobile.Droid.Implementations
+namespace Plugin.MockLocationPlugin
 {
-    public class MockLocationProvider : IMockLocationProvider
+    /// <summary>
+    /// Interface for MockLocationPlugin
+    /// </summary>
+    public class MockLocationPluginImplementation : IMockLocationPlugin
     {
-        public void SendMockLocation(MockPosition position)
+        public void SendMockLocation(IMockLocationPlugin.MockPosition position)
         {
             Location location = new Location(LocationManager.GpsProvider)
             {
@@ -19,12 +20,12 @@ namespace Xamarin.Forms.MockLocation.Mobile.Droid.Implementations
                 Altitude = position.Altitude,
                 Time = DateTime.Now.Ticks,
                 ElapsedRealtimeNanos = 100,
-                Speed = 0.0f,
-                Bearing = 0.0f,
-                Accuracy = 0
+                Speed = position.Speed,
+                Bearing = position.Bearing,
+                Accuracy = position.Accuracy
             };
 
-            LocationManager locationManager = MainActivity.Context.GetSystemService(Context.LocationService) as LocationManager;
+            LocationManager locationManager = Forms.Context.GetSystemService(Context.LocationService) as LocationManager;
 
             locationManager.AddTestProvider(LocationManager.GpsProvider, false, false, false, false, false, false, false, Power.Low, SensorStatus.AccuracyHigh);
             locationManager.SetTestProviderLocation(LocationManager.GpsProvider, location);

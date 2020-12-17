@@ -1,4 +1,4 @@
-# Xamarin.Forms.MockLocation
+# Xamarin.MockLocationPlugin
 Mocking Location with Xamarin Forms
 
 This will only work on Android. You can use this source code just in Android too, but this NuGet Package is especially for Xamarin.Forms.

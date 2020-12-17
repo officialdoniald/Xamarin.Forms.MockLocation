@@ -19,6 +19,8 @@ https://github.com/officialdoniald/Xamarin.Forms.MockLocation/blob/master/Xamari
 <div class="wp-block-image"><figure class="aligncenter size-large"><img src="https://officialdoniald.com/wp-content/uploads/2020/12/Inkedhow-to-enabling-mock-location-etp_LI-575x1024-1.jpg" alt="" class="wp-image-150"/></figure></div>
 <!-- /wp:image -->
 
+Select the Mock Location, and select you app. Run the app again and it will work.
+
 1. Detect mock location:
 
 Thread thread = new Thread(async () =>

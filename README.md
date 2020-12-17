@@ -21,6 +21,10 @@ https://github.com/officialdoniald/Xamarin.Forms.MockLocation/blob/master/Xamari
 
 Select the Mock Location, and select you app. Run the app again and it will work.
 
+1. Request permisson: you can use the Xamarin.Essentials plugin for this, but you can use this in Xamarin.Android project, in the MainActivity last row:
+
+ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.AccessFineLocation }, 1);
+
 1. Detect mock location:
 
 Thread thread = new Thread(async () =>
